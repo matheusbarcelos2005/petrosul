@@ -1196,13 +1196,17 @@ h3 {
   }
 
   .hero img {
-    object-position: center 40%;
+    object-position: 40% 85%;
   }
 
   .hero-overlay {
-    background:
-      linear-gradient(0deg, rgba(7, 9, 54, 0.96) 0%, rgba(7, 9, 54, 0.70) 40%, rgba(7, 9, 54, 0.28) 100%),
-      linear-gradient(180deg, rgba(5, 8, 11, 0.50) 0%, transparent 30%);
+    background: linear-gradient(
+      0deg,
+      rgba(7, 9, 54, 0.97) 0%,
+      rgba(7, 9, 54, 0.88) 35%,
+      rgba(7, 9, 54, 0.70) 65%,
+      rgba(7, 9, 54, 0.55) 100%
+    );
   }
 
   .hero-content {
