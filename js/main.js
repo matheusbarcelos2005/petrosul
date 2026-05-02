@@ -4,11 +4,11 @@ const imageSrc = (fileName) => `${imageBase}${fileName}`;
 const fleet = [
   {
     name: "Professor David Cunha",
-    type: "Navio graneleiro",
+    type: "Carga a granel",
     thumbnail: "navio5.jpeg",
     images: ["navio5.jpeg", "navio1.jpeg"],
     description:
-      "Embarcacao longa, branca e verde, com poroes cobertos. As fotos mostram navegacao lateral e tomada frontal em area lacustre ampla.",
+      "Embarcacao graneleira para transporte de graos e outras cargas a granel na Lagoa dos Patos. As fotos mostram navegacao lateral e tomada frontal em area lacustre ampla.",
     specs: {
       IRIN: "PP-6891",
       Comprimento: "84,70 m",
@@ -19,11 +19,11 @@ const fleet = [
   },
   {
     name: "Professor Lelis Espartel",
-    type: "Navio graneleiro",
+    type: "Carga a granel",
     thumbnail: "navio6.jpeg",
     images: ["navio6.jpeg"],
     description:
-      "Navio com casco verde marcado pelo uso operacional, visto em angulo alto. A imagem valoriza tamanho, volume e poroes cobertos.",
+      "Embarcacao graneleira para transporte de graos e outras cargas a granel, com poroes adequados a operacao na Lagoa dos Patos.",
     specs: {
       IRIN: "PP-6908",
       Comprimento: "84,70 m",
@@ -34,11 +34,11 @@ const fleet = [
   },
   {
     name: "Professor Luiz Leseigneur de Faria",
-    type: "Navio graneleiro",
+    type: "Carga a granel",
     thumbnail: "navio7,jpeg.jpg",
     images: ["navio7,jpeg.jpg"],
     description:
-      "Registro mais distante, bom para acervo e identificacao historica. Ha marca d'agua em uma das imagens recebidas.",
+      "Embarcacao graneleira destinada a graos e outras cargas a granel. Registro mais distante, bom para acervo e identificacao historica.",
     specs: {
       IRIN: "PP-6919",
       Comprimento: "84,70 m",
@@ -49,11 +49,11 @@ const fleet = [
   },
   {
     name: "NM Piratini",
-    type: "Navio graneleiro",
+    type: "Carga a granel",
     thumbnail: "navio4.jpeg",
     images: ["navio4.jpeg"],
     description:
-      "Imagem forte de proa e lateral, com nome legivel. A composicao transmite escala e robustez com boa presenca do casco.",
+      "Embarcacao graneleira de maior porte, usada para graos e outras cargas a granel. A imagem de proa e lateral transmite escala e robustez.",
     specs: {
       IRIN: "PS-2674",
       Comprimento: "99,78 m",
@@ -64,11 +64,11 @@ const fleet = [
   },
   {
     name: "NM Rio Grande do Sul",
-    type: "Navio graneleiro",
+    type: "Carga a granel",
     thumbnail: "navio3.jpeg",
     images: ["navio3.jpeg", "WhatsApp Image 2026-05-02 at 14.03.48 (3).jpeg"],
     description:
-      "As melhores fotos da frota para impacto visual: angulo alto, casco verde em destaque e boa leitura do comprimento da embarcacao.",
+      "Embarcacao graneleira para transporte de graos e outras cargas a granel, com casco verde em destaque e boa leitura do comprimento.",
     specs: {
       IRIN: "PP-2927",
       Comprimento: "84,34 m",
