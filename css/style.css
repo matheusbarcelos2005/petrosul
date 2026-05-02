@@ -1196,23 +1196,29 @@ h3 {
   }
 
   .hero img {
-    object-position: 48% center;
+    object-position: center 65%;
   }
 
   .hero-overlay {
     background:
-      linear-gradient(0deg, rgba(7, 9, 54, 0.94) 0%, rgba(7, 9, 54, 0.65) 50%, rgba(7, 9, 54, 0.38) 100%),
-      linear-gradient(90deg, rgba(5, 8, 11, 0.55), transparent);
+      linear-gradient(0deg, rgba(7, 9, 54, 0.96) 0%, rgba(7, 9, 54, 0.70) 40%, rgba(7, 9, 54, 0.28) 100%),
+      linear-gradient(180deg, rgba(5, 8, 11, 0.50) 0%, transparent 30%);
   }
 
   .hero-content {
-    padding-top: 120px;
-    padding-bottom: 56px;
+    justify-content: flex-end;
+    padding-top: 80px;
+    padding-bottom: 72px;
   }
 
   .hero-actions,
   .btn {
     width: 100%;
+  }
+
+  .section {
+    padding-top: 56px;
+    padding-bottom: 56px;
   }
 
   .metrics,
@@ -1224,6 +1230,17 @@ h3 {
   .metrics div {
     border-right: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .page-hero {
+    grid-template-columns: 1fr;
+    padding-top: 100px;
+    padding-bottom: 32px;
+    gap: 0;
+  }
+
+  .page-hero img {
+    display: none;
   }
 
   .fleet-strip {
