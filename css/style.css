@@ -1216,7 +1216,7 @@ h3 {
 
   .hero-content {
     justify-content: flex-start;
-    padding-top: clamp(140px, 22vh, 200px);
+    padding-top: 90px;
     padding-bottom: 36px;
   }
 
@@ -1307,21 +1307,101 @@ h3 {
     display: none;
   }
 
+  /* ---- FLEET MOBILE REDESIGN ---- */
+
+  .section-heading.compact {
+    display: none;
+  }
+
+  .fleet-shell {
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
   .fleet-strip {
-    grid-auto-columns: 82%;
+    grid-auto-columns: auto;
+    gap: 8px;
+    padding: 0 0 12px;
+    background: transparent;
+    scrollbar-width: none;
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .fleet-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fleet-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    min-width: 0;
+    width: auto;
+    padding: 9px 14px;
+    border-top: 0;
+    border-bottom: 3px solid transparent;
+    border-radius: 40px;
+    background: rgba(17, 20, 95, 0.12);
+    border: 1.5px solid rgba(17, 20, 95, 0.18);
+    gap: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .fleet-tab[aria-selected="true"] {
+    background: var(--blue);
+    border-color: var(--blue);
+    box-shadow: 0 2px 12px rgba(17, 20, 95, 0.30);
+  }
+
+  .fleet-tab img {
+    display: none;
+  }
+
+  .fleet-tab strong {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .fleet-tab[aria-selected="true"] strong {
+    color: var(--white);
+  }
+
+  .fleet-tab span {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0;
+  }
+
+  .fleet-tab[aria-selected="true"] span {
+    color: rgba(255, 255, 255, 0.70);
   }
 
   .fleet-detail {
     min-height: 0;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
   }
 
   .fleet-media {
-    height: 300px;
+    height: 260px;
+  }
+
+  .fleet-info {
+    padding: 20px 18px 24px;
   }
 
   .fleet-specs div {
-    grid-template-columns: 1fr;
-    gap: 4px;
+    grid-template-columns: 100px 1fr;
+    gap: 8px;
   }
 
   .contact-section {
