@@ -106,7 +106,8 @@ const detail = {
   type: document.querySelector("[data-fleet-type]"),
   description: document.querySelector("[data-fleet-description]"),
   specs: document.querySelector("[data-fleet-specs]"),
-  dots: document.querySelector("[data-image-dots]")
+  dots: document.querySelector("[data-image-dots]"),
+  counter: document.querySelector("[data-fleet-counter]")
 };
 
 let activeFleet = 0;
@@ -159,6 +160,16 @@ function renderFleet() {
 
   document.querySelectorAll(".fleet-tab").forEach((tab, index) => {
     tab.setAttribute("aria-selected", String(index === activeFleet));
+  });
+
+  if (detail.counter) {
+    detail.counter.textContent = `${activeFleet + 1} / ${fleet.length}`;
+  }
+
+  tabs?.querySelector('[aria-selected="true"]')?.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest",
+    inline: "nearest"
   });
 }
 

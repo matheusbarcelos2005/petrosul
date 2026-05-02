@@ -59,7 +59,9 @@
         </div>
 
         <div class="fleet-shell">
-          <div class="fleet-strip" role="tablist" aria-label="Lista de embarcações" data-fleet-tabs></div>
+          <div class="fleet-strip-wrap">
+            <div class="fleet-strip" role="tablist" aria-label="Lista de embarcações" data-fleet-tabs></div>
+          </div>
 
           <article class="fleet-detail" data-fleet-detail>
             <div class="fleet-media">
@@ -69,7 +71,10 @@
               <div class="image-dots" aria-label="Fotos do navio" data-image-dots></div>
             </div>
             <div class="fleet-info">
-              <span class="fleet-tag" data-fleet-type>Navio mercante</span>
+              <div class="fleet-meta">
+                <span class="fleet-tag" data-fleet-type>Navio mercante</span>
+                <span class="fleet-counter" data-fleet-counter></span>
+              </div>
               <h3 data-fleet-name>NM Rio Grande do Sul</h3>
               <p data-fleet-description></p>
               <dl class="fleet-specs" data-fleet-specs></dl>
