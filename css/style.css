@@ -242,7 +242,7 @@ textarea {
   position: relative;
   z-index: 1;
   display: flex;
-  min-height: 94vh;
+  min-height: 100vh;
   width: min(1180px, calc(100% - 36px));
   margin: 0 auto;
   padding: 160px 0 88px;
@@ -1193,7 +1193,7 @@ h3 {
 
   .hero,
   .hero-content {
-    min-height: 90vh;
+    min-height: 100vh;
   }
 
   .hero img {
