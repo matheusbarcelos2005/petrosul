@@ -135,7 +135,7 @@ function renderTabs() {
     .join("");
 }
 
-function renderFleet() {
+function renderFleet(shouldScroll = true) {
   if (!tabs || !detail.image || !detail.name || !detail.type || !detail.description || !detail.specs || !detail.dots) {
     return;
   }
@@ -166,11 +166,13 @@ function renderFleet() {
     detail.counter.textContent = `${activeFleet + 1} / ${fleet.length}`;
   }
 
-  tabs?.querySelector('[aria-selected="true"]')?.scrollIntoView({
-    behavior: "smooth",
-    block: "nearest",
-    inline: "nearest"
-  });
+  if (shouldScroll) {
+    tabs?.querySelector('[aria-selected="true"]')?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "nearest"
+    });
+  }
 }
 
 if (tabs) {
@@ -225,4 +227,4 @@ document.querySelector(".contact-form")?.addEventListener("submit", (event) => {
 });
 
 renderTabs();
-renderFleet();
+renderFleet(false);
