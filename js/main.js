@@ -66,7 +66,11 @@ const fleet = [
     name: "NM Rio Grande do Sul",
     type: "Graneleiro",
     thumbnail: "navio3.jpeg",
-    images: ["navio3.jpeg", "WhatsApp Image 2026-05-02 at 14.03.48 (3).jpeg"],
+    images: [
+      "navio3.jpeg",
+      "WhatsApp Image 2026-05-02 at 14.03.48 (3).jpeg",
+      "WhatsApp Image 2026-05-02 at 14.03.48 (4).jpeg"
+    ],
     description:
       "Embarcacao graneleira para transporte de graos e outras cargas a granel, com casco verde em destaque e boa leitura do comprimento.",
     specs: {
@@ -84,8 +88,7 @@ const fleet = [
     images: [
       "navio9.jpeg",
       "navio8.jpeg",
-      "WhatsApp Image 2026-05-02 at 14.03.48.jpeg",
-      "WhatsApp Image 2026-05-02 at 14.03.48 (4).jpeg"
+      "WhatsApp Image 2026-05-02 at 14.03.48.jpeg"
     ],
     description:
       "Embarcacao tanque com perfil mais baixo e tubular, fotografada de lado. Algumas imagens sao ideais para comparacao tecnica.",
@@ -113,6 +116,7 @@ const detail = {
 let activeFleet = 0;
 let activeImage = 0;
 let lightbox = null;
+let slideTimer = null;
 
 function imageAlt(vessel) {
   return `${vessel.name} navegando`;
@@ -168,6 +172,12 @@ function renderFleet(shouldScroll = true) {
     detail.counter.textContent = `${activeFleet + 1} / ${fleet.length}`;
   }
 
+  if (lightbox?.classList.contains("is-open")) {
+    const lightboxImage = lightbox.querySelector("img");
+    lightboxImage.src = imageSrc(currentImage);
+    lightboxImage.alt = imageAlt(vessel);
+  }
+
   if (shouldScroll) {
     tabs?.querySelector('[aria-selected="true"]')?.scrollIntoView({
       behavior: "smooth",
@@ -181,6 +191,19 @@ function selectFleet(index) {
   activeFleet = (index + fleet.length) % fleet.length;
   activeImage = 0;
   renderFleet();
+  startSlideshow();
+}
+
+function startSlideshow() {
+  window.clearInterval(slideTimer);
+
+  const total = fleet[activeFleet]?.images.length || 0;
+  if (!tabs || total <= 1) return;
+
+  slideTimer = window.setInterval(() => {
+    activeImage = (activeImage + 1) % total;
+    renderFleet(false);
+  }, 1500);
 }
 
 function getCurrentImage() {
@@ -265,6 +288,7 @@ detail.dots?.addEventListener("click", (event) => {
 
   activeImage = Number(button.dataset.imageIndex);
   renderFleet();
+  startSlideshow();
 });
 
 const menuToggle = document.querySelector("[data-menu-toggle]");
@@ -289,3 +313,4 @@ document.querySelector(".contact-form")?.addEventListener("submit", (event) => {
 
 renderTabs();
 renderFleet(false);
+startSlideshow();
