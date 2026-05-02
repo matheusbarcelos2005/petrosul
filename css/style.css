@@ -1196,16 +1196,15 @@ h3 {
   }
 
   .hero img {
-    object-position: 40% 85%;
+    object-position: 50% center;
   }
 
   .hero-overlay {
     background: linear-gradient(
-      0deg,
-      rgba(7, 9, 54, 0.97) 0%,
-      rgba(7, 9, 54, 0.88) 35%,
-      rgba(7, 9, 54, 0.70) 65%,
-      rgba(7, 9, 54, 0.55) 100%
+      to top,
+      rgba(7, 9, 54, 0.93) 0%,
+      rgba(7, 9, 54, 0.55) 38%,
+      rgba(7, 9, 54, 0.20) 100%
     );
   }
 
