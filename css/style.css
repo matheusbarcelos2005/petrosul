@@ -1215,7 +1215,7 @@ h3 {
   }
 
   .hero-content {
-    justify-content: flex-end;
+    justify-content: center;
     padding-top: 80px;
     padding-bottom: 36px;
   }
