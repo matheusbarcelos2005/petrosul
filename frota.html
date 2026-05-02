@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Frota | Petrosul</title>
+    <meta
+      name="description"
+      content="Frota da Petrosul — navios, fichas técnicas e galeria de imagens das embarcações fluviais e mercantes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header solid" data-header>
+      <a class="brand" href="index.html#inicio" aria-label="Petrosul - página inicial">
+        <img class="brand-logo" src="imagens/logo.jpeg" alt="Petrosul" />
+        <span>
+          <strong>Petrosul</strong>
+          <small>Petroleiros do Sul</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" data-nav aria-label="Menu principal">
+        <a href="index.html#institucional">Institucional</a>
+        <a href="index.html#atuacao">Atuação</a>
+        <a class="is-active" href="frota.html">Frota</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Frota Petrosul</p>
+          <h1>Embarcações</h1>
+          <p>
+            Navegue pela frota e acesse fichas técnicas, fotografias e
+            especificações de cada embarcação catalogada.
+          </p>
+        </div>
+        <img src="imagens/navio6.jpeg" alt="Embarcação da frota Petrosul em navegação" />
+      </section>
+
+      <section class="section fleet-section" id="frota">
+        <div class="section-heading compact">
+          <p class="eyebrow">Frota</p>
+          <h2>Embarcações ativas</h2>
+          <p>Selecione uma embarcação para visualizar fotos e ficha técnica.</p>
+        </div>
+
+        <div class="fleet-shell">
+          <div class="fleet-strip" role="tablist" aria-label="Lista de embarcações" data-fleet-tabs></div>
+
+          <article class="fleet-detail" data-fleet-detail>
+            <div class="fleet-media">
+              <button class="media-nav prev" type="button" aria-label="Imagem anterior" data-prev-image></button>
+              <img data-fleet-image src="imagens/navio3.jpeg" alt="" />
+              <button class="media-nav next" type="button" aria-label="Próxima imagem" data-next-image></button>
+              <div class="image-dots" aria-label="Fotos do navio" data-image-dots></div>
+            </div>
+            <div class="fleet-info">
+              <span class="fleet-tag" data-fleet-type>Navio mercante</span>
+              <h3 data-fleet-name>NM Rio Grande do Sul</h3>
+              <p data-fleet-description></p>
+              <dl class="fleet-specs" data-fleet-specs></dl>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-col footer-brand">
+          <a class="brand footer-brand-link" href="index.html#inicio" aria-label="Petrosul">
+            <img class="brand-logo" src="imagens/logo.jpeg" alt="Petrosul" />
+            <span>
+              <strong>Petrosul</strong>
+              <small>Petroleiros do Sul</small>
+            </span>
+          </a>
+          <p class="footer-desc">Transporte hidroviário, operações portuárias e gestão de frota no sul do Brasil desde 1964.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <nav aria-label="Links do rodapé">
+            <a href="index.html#institucional">Institucional</a>
+            <a href="index.html#atuacao">Atuação</a>
+            <a href="frota.html">Frota</a>
+            <a href="index.html#contato">Contato</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>Redes sociais</h4>
+          <a class="footer-social" href="https://br.linkedin.com/company/petrosul-rs" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024 Petrosul &mdash; Frota de Petroleiros do Sul Ltda. Todos os direitos reservados.</span>
+        <a href="index.html#inicio">Página inicial &uarr;</a>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

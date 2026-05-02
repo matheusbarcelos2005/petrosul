@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"a:\\\\SITES\\\\SITES PARA FAZER\\\\Petrosul\" -Recurse -Force)",
+      "PowerShell(Get-ChildItem \"a:\\\\SITES\\\\SITES PARA FAZER\\\\Petrosul\" -Recurse -Force | ForEach-Object { $_.FullName -replace [regex]::Escape\\(\"a:\\\\SITES\\\\SITES PARA FAZER\\\\Petrosul\"\\), \".\" })",
+      "PowerShell(Get-ChildItem \"a:\\\\SITES\\\\SITES PARA FAZER\\\\Petrosul\\\\imagens\" -Force | ForEach-Object { \"$\\($_.Name\\) - $\\($_.Length\\) bytes\" })"
+    ]
+  }
+}
