@@ -4,7 +4,7 @@ const imageSrc = (fileName) => `${imageBase}${fileName}`;
 const fleet = [
   {
     name: "Professor David Cunha",
-    type: "Carga a granel",
+    type: "Graneleiro",
     thumbnail: "navio5.jpeg",
     images: ["navio5.jpeg", "navio1.jpeg"],
     description:
@@ -19,7 +19,7 @@ const fleet = [
   },
   {
     name: "Professor Lelis Espartel",
-    type: "Carga a granel",
+    type: "Graneleiro",
     thumbnail: "navio6.jpeg",
     images: ["navio6.jpeg"],
     description:
@@ -34,7 +34,7 @@ const fleet = [
   },
   {
     name: "Professor Luiz Leseigneur de Faria",
-    type: "Carga a granel",
+    type: "Graneleiro",
     thumbnail: "navio7,jpeg.jpg",
     images: ["navio7,jpeg.jpg"],
     description:
@@ -49,7 +49,7 @@ const fleet = [
   },
   {
     name: "NM Piratini",
-    type: "Carga a granel",
+    type: "Graneleiro",
     thumbnail: "navio4.jpeg",
     images: ["navio4.jpeg"],
     description:
@@ -64,7 +64,7 @@ const fleet = [
   },
   {
     name: "NM Rio Grande do Sul",
-    type: "Carga a granel",
+    type: "Graneleiro",
     thumbnail: "navio3.jpeg",
     images: ["navio3.jpeg", "WhatsApp Image 2026-05-02 at 14.03.48 (3).jpeg"],
     description:
@@ -112,6 +112,7 @@ const detail = {
 
 let activeFleet = 0;
 let activeImage = 0;
+let lightbox = null;
 
 function imageAlt(vessel) {
   return `${vessel.name} navegando`;
@@ -145,6 +146,7 @@ function renderFleet(shouldScroll = true) {
 
   detail.image.src = imageSrc(currentImage);
   detail.image.alt = imageAlt(vessel);
+  detail.image.title = "Clique para ampliar";
   detail.name.textContent = vessel.name;
   detail.type.textContent = vessel.type;
   detail.description.textContent = vessel.description;
@@ -175,27 +177,86 @@ function renderFleet(shouldScroll = true) {
   }
 }
 
+function selectFleet(index) {
+  activeFleet = (index + fleet.length) % fleet.length;
+  activeImage = 0;
+  renderFleet();
+}
+
+function getCurrentImage() {
+  const vessel = fleet[activeFleet];
+  return {
+    src: imageSrc(vessel.images[activeImage] || vessel.images[0]),
+    alt: imageAlt(vessel)
+  };
+}
+
+function ensureLightbox() {
+  if (lightbox || !detail.image) return lightbox;
+
+  lightbox = document.createElement("div");
+  lightbox.className = "image-lightbox";
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.setAttribute("aria-label", "Imagem ampliada do navio");
+  lightbox.innerHTML = `
+    <button class="lightbox-close" type="button" aria-label="Fechar imagem ampliada">&times;</button>
+    <img alt="">
+  `;
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox || event.target.closest(".lightbox-close")) {
+      closeLightbox();
+    }
+  });
+
+  document.body.appendChild(lightbox);
+  return lightbox;
+}
+
+function openLightbox() {
+  const box = ensureLightbox();
+  if (!box) return;
+
+  const image = getCurrentImage();
+  const img = box.querySelector("img");
+  img.src = image.src;
+  img.alt = image.alt;
+  box.classList.add("is-open");
+  document.body.classList.add("has-lightbox");
+  box.querySelector(".lightbox-close")?.focus();
+}
+
+function closeLightbox() {
+  if (!lightbox) return;
+
+  lightbox.classList.remove("is-open");
+  document.body.classList.remove("has-lightbox");
+}
+
 if (tabs) {
   tabs.addEventListener("click", (event) => {
     const button = event.target.closest("[data-fleet-index]");
     if (!button) return;
 
-    activeFleet = Number(button.dataset.fleetIndex);
-    activeImage = 0;
-    renderFleet();
+    selectFleet(Number(button.dataset.fleetIndex));
   });
 }
 
 document.querySelector("[data-prev-image]")?.addEventListener("click", () => {
-  const total = fleet[activeFleet].images.length;
-  activeImage = (activeImage - 1 + total) % total;
-  renderFleet();
+  selectFleet(activeFleet - 1);
 });
 
 document.querySelector("[data-next-image]")?.addEventListener("click", () => {
-  const total = fleet[activeFleet].images.length;
-  activeImage = (activeImage + 1) % total;
-  renderFleet();
+  selectFleet(activeFleet + 1);
+});
+
+detail.image?.addEventListener("click", openLightbox);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeLightbox();
+  }
 });
 
 detail.dots?.addEventListener("click", (event) => {
