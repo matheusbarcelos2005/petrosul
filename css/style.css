@@ -1209,9 +1209,9 @@ h3 {
   }
 
   .hero-content {
-    justify-content: flex-end;
+    justify-content: center;
     padding-top: 80px;
-    padding-bottom: 72px;
+    padding-bottom: 48px;
   }
 
   .hero-actions,
