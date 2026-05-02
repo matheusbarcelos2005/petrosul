@@ -4,11 +4,11 @@ const imageSrc = (fileName) => `${imageBase}${fileName}`;
 const fleet = [
   {
     name: "Professor David Cunha",
-    type: "Navio de carga fluvial",
+    type: "Navio graneleiro",
     thumbnail: "navio5.jpeg",
     images: ["navio5.jpeg", "navio1.jpeg"],
     description:
-      "Embarcacao longa, branca e verde, com poroes cobertos. As fotos mostram navegacao lateral e tomada frontal em canal amplo.",
+      "Embarcacao longa, branca e verde, com poroes cobertos. As fotos mostram navegacao lateral e tomada frontal em area lacustre ampla.",
     specs: {
       IRIN: "PP-6891",
       Comprimento: "84,70 m",
@@ -19,7 +19,7 @@ const fleet = [
   },
   {
     name: "Professor Lelis Espartel",
-    type: "Navio de carga coberta",
+    type: "Navio graneleiro",
     thumbnail: "navio6.jpeg",
     images: ["navio6.jpeg"],
     description:
@@ -34,7 +34,7 @@ const fleet = [
   },
   {
     name: "Professor Luiz Leseigneur de Faria",
-    type: "Navio de carga fluvial",
+    type: "Navio graneleiro",
     thumbnail: "navio7,jpeg.jpg",
     images: ["navio7,jpeg.jpg"],
     description:
@@ -49,7 +49,7 @@ const fleet = [
   },
   {
     name: "NM Piratini",
-    type: "Navio mercante",
+    type: "Navio graneleiro",
     thumbnail: "navio4.jpeg",
     images: ["navio4.jpeg"],
     description:
@@ -64,7 +64,7 @@ const fleet = [
   },
   {
     name: "NM Rio Grande do Sul",
-    type: "Navio mercante",
+    type: "Navio graneleiro",
     thumbnail: "navio3.jpeg",
     images: ["navio3.jpeg", "WhatsApp Image 2026-05-02 at 14.03.48 (3).jpeg"],
     description:
