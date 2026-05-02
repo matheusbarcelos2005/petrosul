@@ -1216,7 +1216,7 @@ h3 {
 
   .hero-content {
     justify-content: flex-start;
-    padding-top: clamp(300px, 42vh, 420px);
+    padding-top: clamp(140px, 22vh, 200px);
     padding-bottom: 36px;
   }
 
