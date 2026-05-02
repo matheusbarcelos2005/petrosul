@@ -1026,7 +1026,7 @@ h3 {
 }
 
 .contact-form textarea {
-  resize: vertical;
+  resize: none;
 }
 
 .contact-form .btn {
