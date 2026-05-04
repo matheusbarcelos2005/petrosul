@@ -1,5 +1,6 @@
 const imageBase = "imagens/";
 const imageSrc = (fileName) => `${imageBase}${fileName}`;
+const slideDuration = 4000;
 
 const fleet = [
   {
@@ -157,12 +158,14 @@ function renderFleet(shouldScroll = true) {
   detail.specs.innerHTML = Object.entries(vessel.specs)
     .map(([key, value]) => `<div><dt>${key}</dt><dd>${value}</dd></div>`)
     .join("");
-  detail.dots.innerHTML = vessel.images
-    .map(
-      (_, index) =>
-        `<button type="button" aria-label="Ver imagem ${index + 1}" aria-current="${index === activeImage}" data-image-index="${index}"></button>`
-    )
-    .join("");
+  detail.dots.innerHTML =
+    vessel.images.length > 1
+      ? `
+        <button class="image-progress" type="button" aria-label="Ver próxima imagem" data-next-gallery-image>
+          <span></span>
+        </button>
+      `
+      : "";
 
   document.querySelectorAll(".fleet-tab").forEach((tab, index) => {
     tab.setAttribute("aria-selected", String(index === activeFleet));
@@ -199,11 +202,28 @@ function startSlideshow() {
 
   const total = fleet[activeFleet]?.images.length || 0;
   if (!tabs || total <= 1) return;
+  restartProgress();
 
   slideTimer = window.setInterval(() => {
-    activeImage = (activeImage + 1) % total;
-    renderFleet(false);
-  }, 1500);
+    showNextImage();
+  }, slideDuration);
+}
+
+function restartProgress() {
+  detail.dots?.querySelector(".image-progress")?.classList.remove("is-running");
+
+  window.requestAnimationFrame(() => {
+    detail.dots?.querySelector(".image-progress")?.classList.add("is-running");
+  });
+}
+
+function showNextImage() {
+  const total = fleet[activeFleet]?.images.length || 0;
+  if (total <= 1) return;
+
+  activeImage = (activeImage + 1) % total;
+  renderFleet(false);
+  restartProgress();
 }
 
 function getCurrentImage() {
@@ -283,11 +303,10 @@ document.addEventListener("keydown", (event) => {
 });
 
 detail.dots?.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-image-index]");
+  const button = event.target.closest("[data-next-gallery-image]");
   if (!button) return;
 
-  activeImage = Number(button.dataset.imageIndex);
-  renderFleet();
+  showNextImage();
   startSlideshow();
 });
 
